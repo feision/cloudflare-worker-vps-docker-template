@@ -1,4 +1,4 @@
-﻿#!/bin/bash
+#!/bin/bash
 # 一键修复 VPS 环境脚本
 echo "Fixing DNS..."
 echo "nameserver 8.8.8.8" | sudo tee /etc/resolv.conf > /dev/null

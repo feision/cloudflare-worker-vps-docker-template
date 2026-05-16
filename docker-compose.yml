@@ -1,0 +1,15 @@
+﻿version: '3.8'
+services:
+  worker:
+    image: node:20-slim
+    container_name: worker-app
+    working_dir: /app
+    volumes:
+      - .:/app
+    network_mode: host
+    environment:
+      - CI=true
+    command: >
+      bash -c "npm install && 
+               npx wrangler dev --ip 0.0.0.0 --port 3000 --local --live-reload=false"
+    restart: unless-stopped
